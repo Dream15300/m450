@@ -6,7 +6,7 @@ namespace BankkontoUebung
 {
     public class Jugendkonto : Bankkonto
     {
-        public Jugendkonto(double guthaben, DateTime erstellungsDatum) : base(guthaben, erstellungsDatum)
+        public Jugendkonto(double guthaben, string status, DateTime erstellungsDatum) : base(guthaben, status, erstellungsDatum)
         {
         }
 

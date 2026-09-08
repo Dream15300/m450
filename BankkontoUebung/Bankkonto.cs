@@ -5,6 +5,7 @@ namespace BankkontoUebung
     public abstract class Bankkonto
     {
         public string KontoNummer { get; } = Guid.NewGuid().ToString();
+        public string Status { get; private set; }
 
         public double Guthaben { get; internal set; } = 0.0;
 
@@ -24,9 +25,10 @@ namespace BankkontoUebung
 
 
         // Konstruktor
-        public Bankkonto(double guthaben, DateTime erstellungsDatum)
+        public Bankkonto(double guthaben, string status, DateTime erstellungsDatum)
         {
             Guthaben = guthaben;
+            Status = status;
 
             ErstellungsDatum = erstellungsDatum.Date;
             LetzteZinsBuchung = erstellungsDatum.Date;
@@ -161,7 +163,26 @@ namespace BankkontoUebung
 
             if (Guthaben >= 0)
             {
+                // 0 <= Guthaben < 10'000
                 zins = AktivZins;
+
+                // 10'000 <= Guthaben < 50'000
+                if (Guthaben >= 10000 && Guthaben < 50000)
+                {
+                    zins = AktivZins + 0.005;
+                }
+
+                // 50'000 <= Guthaben < 100'000, Standard
+                else if (Status == "Standard" && Guthaben >= 50000 && Guthaben < 100000)
+                {
+                    zins = AktivZins + 0.0075;
+                }
+
+                // 50'000 <= Guthaben < 100'000, VIP
+                else if (Status == "VIP" && Guthaben >= 50000 && Guthaben < 100000)
+                {
+                    zins = AktivZins + 0.015;
+                }
             }
             else
             {

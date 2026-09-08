@@ -6,7 +6,7 @@ namespace BankkontoUebung
 {
     public class Sparkonto : Bankkonto
     {
-        public Sparkonto(double guthaben, DateTime erstellungsDatum) : base(guthaben, erstellungsDatum)
+        public Sparkonto(double guthaben, string status, DateTime erstellungsDatum) : base(guthaben, status, erstellungsDatum)
         {
         }
 

@@ -7,7 +7,7 @@ namespace BankkontoUebung
     public class Privatkonto : Bankkonto
     {
         public const double MaximalerÜberziehungsbetrag = 500.0;
-        public Privatkonto(double guthaben, DateTime erstellungsDatum) : base(guthaben, erstellungsDatum)
+        public Privatkonto(double guthaben, string status, DateTime erstellungsDatum) : base(guthaben, status, erstellungsDatum)
         {
         }
 
