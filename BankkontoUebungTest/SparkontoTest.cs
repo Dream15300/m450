@@ -10,7 +10,7 @@ public class SparkontoTest
     public void SparkontoDarfNichtÜberzogenWerden()
     {
         // Arrange
-        Sparkonto konto = new Sparkonto(1000.0, new DateTime(2026, 3, 1));
+        Sparkonto konto = new Sparkonto(1000.0, "Standard", new DateTime(2026, 3, 1));
 
         // Act & Assert
         Assert.ThrowsExactly<InvalidOperationException>(() => konto.Beziehe(1001.0, new DateTime(2026, 3, 2)));
